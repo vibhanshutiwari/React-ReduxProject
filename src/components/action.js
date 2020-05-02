@@ -3,9 +3,10 @@ import {VALUE_CAKE} from './value'
 
 
 
-  const valuecake = () => {
+  const valuecake = (number = 1) => {
     return {
-        type: VALUE_CAKE
+        type: VALUE_CAKE,
+        payload: number
     }
 }
 

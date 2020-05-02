@@ -8,7 +8,7 @@ const valueReducer = (state = value, action) => {
    switch(action.type) {
        case VALUE_CAKE : return {
            ...state,
-           numOfValue: state.numOfValue + 50
+           numOfValue: state.numOfValue - action.payload
        }
        default: return state
    }
