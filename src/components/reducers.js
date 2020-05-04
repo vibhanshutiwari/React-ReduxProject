@@ -1,17 +1,39 @@
-import {VALUE_CAKE} from './value'
 
-const value = {
-    numOfValue: 100
+import { FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE } from "./value";
+
+
+
+
+const initialState = {
+    loading: false,
+    users: [],
+    error: ''
 };
 
-const valueReducer = (state = value, action) => {
-   switch(action.type) {
-       case VALUE_CAKE : return {
-           ...state,
-           numOfValue: state.numOfValue - action.payload
-       }
-       default: return state
-   }
-}
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FETCH_USERS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case FETCH_USERS_SUCCESS:
+            return {
+                loading: false,
+                users: action.payload,
+                error: ''
+            }
+        case FETCH_USERS_FAILURE:
+            return {
+                loading: false,
+                users: [],
+                error: action.payload
+            }
+        default: return state
 
-export default valueReducer;
+    }
+} 
+
+export default reducer;
+
+
